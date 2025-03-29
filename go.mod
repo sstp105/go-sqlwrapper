@@ -1,11 +1,9 @@
-module github.com/yang-tk/go-sqlwrapper
+module github.com/sstp105/go-sqlwrapper
 
 go 1.18
 
 require (
 	github.com/DATA-DOG/go-sqlmock v1.5.0
-	github.com/go-sql-driver/mysql v1.6.0
-	github.com/lib/pq v1.10.6
 	github.com/onsi/ginkgo/v2 v2.1.4
 	github.com/onsi/gomega v1.19.0
 	gopkg.in/retry.v1 v1.0.3

@@ -1,10 +1,11 @@
-package main
+package sqlwrapper
 
 import (
 	"context"
 	"database/sql"
-	"gopkg.in/retry.v1"
 	"time"
+
+	"gopkg.in/retry.v1"
 )
 
 // DefaultMaxRetries represents the default max attempts for retry and is used for the default SQLWrapper

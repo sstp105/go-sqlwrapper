@@ -6,7 +6,7 @@ A tiny wrapper for golang's `database/sql` package that provides transaction man
 
 ## Usage
 
-> go get github.com/yang-tk/go-sqlwrapper
+> go get github.com/sstp105/go-sqlwrapper
 
 ### Initialization
 
@@ -16,7 +16,7 @@ Initialize using default configurations
 func SetupDB() {
     db, err := sql.Open("mysql", "dsn string...")
 	w := sqlwrapper.New(db)
-}	
+}
 ```
 
 Or initialize using a custom retry options
@@ -31,8 +31,8 @@ func SetupDB() {
         MaxDelay:     time.Duration(60) * time.Second, // max 60 secs delay
         Jitter:       func() bool { return true },     // disable jitter
     }
-	w := sqlwrapper.NewWithOptions(db, retryOpts) 
-}	
+	w := sqlwrapper.NewWithOptions(db, retryOpts)
+}
 ```
 
 ### DB Operations
@@ -56,7 +56,7 @@ func Insert() error {
 	if err != nil {
 		return err
 	}
-	
+
 	w := sqlwrapper.New(db)
 	// same as *sql.DB.Exec but with retry support
 	err = w.Exec(`INSERT INTO table_name (name) VALUES (?)`, "column value")
@@ -113,4 +113,3 @@ QueryRowContextWithOptions(ctx context.Context, retryOpts RetryOptions, query st
 TransactWithRetryOptions(retryOpts RetryOptions, fn func(*sql.Tx) error) error
 TransactContextWithRetryOptions(ctx context.Context, txOpts *sql.TxOptions, retryOpts RetryOptions, fn func(*sql.Tx) error) error
 ```
-

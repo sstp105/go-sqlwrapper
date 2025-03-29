@@ -1,14 +1,15 @@
-package main
+package sqlwrapper
 
 import (
 	"database/sql"
 	"errors"
 	"fmt"
+	"testing"
+	"time"
+
 	"github.com/DATA-DOG/go-sqlmock"
 	. "github.com/onsi/ginkgo/v2"
 	. "github.com/onsi/gomega"
-	"testing"
-	"time"
 )
 
 func Test(t *testing.T) {
